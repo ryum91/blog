@@ -1,11 +1,11 @@
 import { Link } from "gatsby";
 import Img from "gatsby-image";
+import Helmet from "react-helmet";
 import React from "react";
 
 import get from "lodash/get";
 import map from "lodash/map";
 
-import Meta from "components/meta";
 import Adsense from "components/adsense";
 
 import "./style.scss";
@@ -28,7 +28,12 @@ const Post = ({ data, options, site }) => {
 
   return (
     <div className="article" key={path}>
-      {!isList && <Meta site={site} img={fluid.src} />}
+      {!isList && <Helmet meta={[
+        {
+          property: "og:image",
+          content: `${site.url}${fluid.src}`
+        }
+      ]} />}
       <div className="container">
         <div className="info">
           <Link style={{ boxShadow: "none" }} to={path}>
