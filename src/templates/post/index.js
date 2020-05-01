@@ -5,11 +5,12 @@ import React from "react";
 import get from "lodash/get";
 import map from "lodash/map";
 
+import Meta from "components/meta";
 import Adsense from "components/adsense";
 
 import "./style.scss";
 
-const Post = ({ data, options }) => {
+const Post = ({ data, options, site }) => {
   const {
     category,
     tags,
@@ -20,12 +21,14 @@ const Post = ({ data, options }) => {
     image
   } = data.frontmatter;
   const { isIndex, adsense } = options;
+  const isList = isIndex;
   const html = get(data, "html");
   const isMore = isIndex && !!html.match("<!--more-->");
   const fluid = get(image, "childImageSharp.fluid");
 
   return (
     <div className="article" key={path}>
+      {!isList && <Meta site={site} img={fluid.src} />}
       <div className="container">
         <div className="info">
           <Link style={{ boxShadow: "none" }} to={path}>

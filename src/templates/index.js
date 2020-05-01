@@ -21,6 +21,7 @@ const Template = ({ data, location }) => (
             isIndex: false,
             adsense: get(data, "site.meta.adsense")
           }}
+          site={get(data, "site.meta")}
         />
       ) : (
         <Page {...this.props} />
