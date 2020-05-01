@@ -25,13 +25,20 @@ const Post = ({ data, options, site }) => {
   const html = get(data, "html");
   const isMore = isIndex && !!html.match("<!--more-->");
   const fluid = get(image, "childImageSharp.fluid");
-
   return (
     <div className="article" key={path}>
       {!isList && <Helmet meta={[
         {
           property: "og:image",
           content: `${site.url}${fluid.src}`
+        },
+        {
+          property: "og:description",
+          content: description
+        },
+        {
+          property: "og:url",
+          content: site.url + path
         }
       ]} />}
       <div className="container">
