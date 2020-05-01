@@ -29,16 +29,20 @@ const Post = ({ data, options }) => {
       <div className="container">
         <div className="info">
           <Link style={{ boxShadow: "none" }} to={path}>
-            <h1>{title}</h1>
+            <h1 className="title">{title}</h1>
             <time dateTime={date}>{date}</time>
           </Link>
           {Badges({ items: [category], primary: true })}
           {Badges({ items: tags })}
         </div>
         <div className="content">
-          <p>{description}</p>
           {fluid ? (
             <Img fluid={fluid} style={{ display: "block", margin: "0 auto" }} />
+            ) : (
+              ""
+              )}
+          { isMore ? (
+            <p>{description}</p>
           ) : (
             ""
           )}
@@ -52,6 +56,7 @@ const Post = ({ data, options }) => {
         {isMore ? Button({ path, label: "MORE", primary: true }) : ""}
         {getAd(isIndex, adsense)}
       </div>
+      <hr className="page-hr" />
     </div>
   );
 };

@@ -8,10 +8,12 @@ import {
   faFacebook,
   faGithub,
   faHtml5,
-  faJs,
+  faJsSquare,
   faNode,
   faPhp,
   faReact,
+  faJava,
+  faCss3Alt,
   faTwitter,
   faVuejs
 } from "@fortawesome/free-brands-svg-icons";
@@ -23,10 +25,12 @@ library.add(
   faFacebook,
   faGithub,
   faHtml5,
-  faJs,
+  faJsSquare,
   faNode,
   faPhp,
   faReact,
+  faJava,
+  faCss3Alt,
   faTwitter,
   faVuejs
 );

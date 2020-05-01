@@ -12,10 +12,10 @@ class Profile extends React.Component {
   render() {
     const { location, data } = this.props;
     const profile = get(data, "profile.childImageSharp.fixed");
-    const work1 = get(data, "work1.childImageSharp.sizes");
-    const work2 = get(data, "work2.childImageSharp.sizes");
-    const back1 = get(data, "back1.childImageSharp.sizes");
-    const back2 = get(data, "back2.childImageSharp.sizes");
+    // const work1 = get(data, "work1.childImageSharp.sizes");
+    // const work2 = get(data, "work2.childImageSharp.sizes");
+    // const back1 = get(data, "back1.childImageSharp.sizes");
+    // const back2 = get(data, "back2.childImageSharp.sizes");
 
     return (
       <Layout location={location}>
@@ -24,16 +24,16 @@ class Profile extends React.Component {
           <section className="text-center">
             <div className="container">
               <Img fixed={profile} className="rounded-circle" />
-              <h1>jaxx2104</h1>
+              <h1>Charyum Park</h1>
               <p className="lead text-muted">Front-end engineer.</p>
               <div>
                 <a
                   ref="twButton"
-                  href="https://twitter.com/jaxx2104"
+                  href="https://twitter.com/ryum91"
                   className="twitter-follow-button"
                   data-show-count="false"
                 >
-                  Follow @jaxx2104
+                  Follow @ryum91
                 </a>
               </div>
             </div>
@@ -51,36 +51,41 @@ class Profile extends React.Component {
             <div className="container">
               <div className="row justify-content-md-center">
                 <div className="col-lg-3 col-6">
-                  <Icon title="HTML" name="html5" />
-                </div>
-                <div className="col-lg-3 col-6">
-                  <Icon title="JavaScript" name="js" />
-                </div>
-                <div className="col-lg-3 col-6">
                   <Icon title="React.js" name="react" />
                 </div>
                 <div className="col-lg-3 col-6">
                   <Icon title="Vue.js" name="vuejs" />
                 </div>
+                <div className="col-lg-3 col-6">
+                  <Icon title="JavaScript" name="js-square" />
+                </div>
+                <div className="col-lg-3 col-6">
+                  {/* <Icon title="TypeScript" name="typescript" /> */}
+                  <div className="icon">
+                  <svg viewBox="0 0 22 22" className="svg-inline--fa">
+                    <path fill="currentColor" d="M3,3H21V21H3V3M13.71,17.86C14.21,18.84 15.22,19.59 16.8,19.59C18.4,19.59 19.6,18.76 19.6,17.23C19.6,15.82 18.79,15.19 17.35,14.57L16.93,14.39C16.2,14.08 15.89,13.87 15.89,13.37C15.89,12.96 16.2,12.64 16.7,12.64C17.18,12.64 17.5,12.85 17.79,13.37L19.1,12.5C18.55,11.54 17.77,11.17 16.7,11.17C15.19,11.17 14.22,12.13 14.22,13.4C14.22,14.78 15.03,15.43 16.25,15.95L16.67,16.13C17.45,16.47 17.91,16.68 17.91,17.26C17.91,17.74 17.46,18.09 16.76,18.09C15.93,18.09 15.45,17.66 15.09,17.06L13.71,17.86M13,11.25H8V12.75H9.5V20H11.25V12.75H13V11.25Z" />
+                  </svg>
+                  </div>
+                </div>
               </div>
               <div className="row justify-content-md-center">
+                <div className="col-lg-3 col-6">
+                  <Icon title="HTML" name="html5" />
+                </div>
+                <div className="col-lg-3 col-6">
+                  <Icon title="CSS3" name="css3-alt" />
+                </div>
                 <div className="col-lg-3 col-6">
                   <Icon title="Node.js" name="node" />
                 </div>
                 <div className="col-lg-3 col-6 ">
-                  <Icon title="PHP" name="php" />
-                </div>
-                <div className="col-lg-3 col-6 ">
-                  <Icon title="AWS" name="aws" />
-                </div>
-                <div className="col-lg-3 col-6 ">
-                  <Icon title="Swift" name="apple" />
+                  <Icon title="Java" name="java" />
                 </div>
               </div>
             </div>
           </section>
 
-          <section id="features" className="text-center jumboimage">
+          {/* <section id="features" className="text-center jumboimage">
             <Img sizes={back1} className="cover-image" />
             <div className="container">
               <div className="row cover-over">
@@ -97,9 +102,9 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
-          <section
+          {/* <section
             className="bg-primary text-white text-center color-inverse"
             id="concept"
           >
@@ -123,9 +128,9 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
-          <section id="repos">
+          {/* <section id="repos">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-12 text-left">
@@ -153,8 +158,9 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
         </div>
+        <hr />
       </Layout>
     );
   }
