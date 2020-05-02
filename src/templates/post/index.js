@@ -7,6 +7,7 @@ import get from "lodash/get";
 import map from "lodash/map";
 
 import Adsense from "components/adsense";
+import Utterances from "components/utterances";
 
 import "./style.scss";
 
@@ -72,6 +73,12 @@ const Post = ({ data, options, site }) => {
         {getAd(isIndex, adsense)}
       </div>
       <hr className="page-hr" />
+      {!isList && (
+        <Utterances />
+      )}
+      {!isList && (
+        <hr className="page-hr" />
+      )}
     </div>
   );
 };
