@@ -17,7 +17,7 @@ const Meta = ({ site, title }) => {
         },
         {
           property: "og:image",
-          content: `${url}/img/profile.jpg`
+          content: `${url}/img/dev_ryum.jpg`
         }
       ]}
     />
