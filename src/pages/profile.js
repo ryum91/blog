@@ -14,9 +14,9 @@ class Profile extends React.Component {
     const profile = get(data, "profile.childImageSharp.fixed");
 
     return (
-      <Layout location={location}>
+      <Layout footer={false} location={location}>
         <Meta site={siteMetadata} title="Profile" />
-        <div>
+        <div className="article">
           <section className="text-center">
             <div className="container">
               <Img fixed={profile} className="rounded-circle" />
