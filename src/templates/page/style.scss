@@ -68,3 +68,18 @@ section {
     }
   }
 }
+
+.profile-link {
+  display: inline-block;
+  
+  svg {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .icon {
+    margin: 0;
+    color: #fff;
+  }
+}

@@ -36,10 +36,6 @@ const Post = ({ data, options, site }) => {
         {
           property: "og:description",
           content: description
-        },
-        {
-          property: "og:url",
-          content: site.url + path
         }
       ]} />}
       <div className="container">

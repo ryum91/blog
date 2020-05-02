@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "DEV.RYUM",
-    description: "Ryum's Blog for Developers",
+    description: "RYUM Site for Developers",
     siteUrl: "https://dev.ryum.site",
     author: "RYUM",
     twitter: "ryum91",
@@ -52,7 +52,7 @@ module.exports = {
       options: {
         name: "DEV.RYUM",
         short_name: "DEV.RYUM",
-        description: "Ryum's Blog for Developers",
+        description: "RYUM Site for Developers",
         homepage_url: "https://dev.ryum.site",
         start_url: "/",
         background_color: "#fff",
