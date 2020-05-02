@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "DEV.RYUM.SITE",
-    description: "RYUM.SITE for Develop",
+    title: "DEV.RYUM",
+    description: "Ryum's Blog for Developers",
     siteUrl: "https://dev.ryum.site",
     author: "RYUM",
     twitter: "ryum91",
@@ -50,10 +50,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Gatstrap",
-        short_name: "Gatstrap",
-        description: "Gatsby starter for bootstrap a blog",
-        homepage_url: "https://gatstrap.netlify.com",
+        name: "DEV.RYUM",
+        short_name: "DEV.RYUM",
+        description: "Ryum's Blog for Developers",
+        homepage_url: "https://dev.ryum.site",
         start_url: "/",
         background_color: "#fff",
         theme_color: "#673ab7",
