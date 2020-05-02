@@ -12,10 +12,6 @@ class Profile extends React.Component {
   render() {
     const { location, data } = this.props;
     const profile = get(data, "profile.childImageSharp.fixed");
-    // const work1 = get(data, "work1.childImageSharp.sizes");
-    // const work2 = get(data, "work2.childImageSharp.sizes");
-    // const back1 = get(data, "back1.childImageSharp.sizes");
-    // const back2 = get(data, "back2.childImageSharp.sizes");
 
     return (
       <Layout location={location}>
@@ -25,15 +21,16 @@ class Profile extends React.Component {
             <div className="container">
               <Img fixed={profile} className="rounded-circle" />
               <h1>Charyum Park</h1>
-              <p className="lead text-muted">Front-end engineer.</p>
-              <div>
-                <a
-                  ref="twButton"
-                  href="https://twitter.com/ryum91"
-                  className="twitter-follow-button"
-                  data-show-count="false"
-                >
-                  Follow @ryum91
+              <p className="lead text-muted">Front-end developer capable of server development</p>
+              <div className="profile-link-wrap">
+                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="https://github.com/ryum91">
+                  <Icon title="Github" name="github" />
+                </a>
+                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="https://www.linkedin.com/in/charyum-park/">
+                  <Icon title="Linkedin" name="linkedin" />
+                </a>
+                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="https://twitter.com/ryum91">
+                  <Icon title="Twitter" name="twitter" />
                 </a>
               </div>
             </div>
@@ -60,7 +57,6 @@ class Profile extends React.Component {
                   <Icon title="JavaScript" name="js-square" />
                 </div>
                 <div className="col-lg-3 col-6">
-                  {/* <Icon title="TypeScript" name="typescript" /> */}
                   <div className="icon">
                   <svg viewBox="0 0 22 22" className="svg-inline--fa">
                     <path fill="currentColor" d="M3,3H21V21H3V3M13.71,17.86C14.21,18.84 15.22,19.59 16.8,19.59C18.4,19.59 19.6,18.76 19.6,17.23C19.6,15.82 18.79,15.19 17.35,14.57L16.93,14.39C16.2,14.08 15.89,13.87 15.89,13.37C15.89,12.96 16.2,12.64 16.7,12.64C17.18,12.64 17.5,12.85 17.79,13.37L19.1,12.5C18.55,11.54 17.77,11.17 16.7,11.17C15.19,11.17 14.22,12.13 14.22,13.4C14.22,14.78 15.03,15.43 16.25,15.95L16.67,16.13C17.45,16.47 17.91,16.68 17.91,17.26C17.91,17.74 17.46,18.09 16.76,18.09C15.93,18.09 15.45,17.66 15.09,17.06L13.71,17.86M13,11.25H8V12.75H9.5V20H11.25V12.75H13V11.25Z" />
@@ -84,81 +80,6 @@ class Profile extends React.Component {
               </div>
             </div>
           </section>
-
-          {/* <section id="features" className="text-center jumboimage">
-            <Img sizes={back1} className="cover-image" />
-            <div className="container">
-              <div className="row cover-over">
-                <div className="col-md-12 text-left">
-                  <h2 className="section-heading">Features</h2>
-                  <p>
-                    I'm a front-end engineer in Japan
-                    <br />
-                    Used to be a designer of furniture and architecture.
-                    <br />
-                  </p>
-                  <li>2013 ~ 2017: J-CAST News</li>
-                  <li>2017 ~ : Recruit Lifestyle</li>
-                </div>
-              </div>
-            </div>
-          </section> */}
-
-          {/* <section
-            className="bg-primary text-white text-center color-inverse"
-            id="concept"
-          >
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <h2 className="section-heading">WORKS</h2>
-                  <hr className="border-white" />
-                </div>
-              </div>
-            </div>
-            <div className="container">
-              <div className="row">
-                <div className="col-md-6 slide-left" data-emergence="hidden">
-                  <Img sizes={work1} />
-                  <p>Yomu</p>
-                </div>
-                <div className="col-md-6 slide-right" data-emergence="hidden">
-                  <Img sizes={work2} />
-                  <p>Detector</p>
-                </div>
-              </div>
-            </div>
-          </section> */}
-
-          {/* <section id="repos">
-            <div className="container">
-              <div className="row align-items-center">
-                <div className="col-md-12 text-left">
-                  <h2 className="section-heading">Repositories</h2>
-                  <p>
-                    リポジトリは
-                    <a href="https://github.com/jaxx2104/">こちら</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section id="features" className="jumboimage">
-            <Img sizes={back2} className="cover-image" />
-            <div className="container">
-              <div className="row cover-over">
-                <div className="col-md-12 text-left">
-                  <h2 className="section-heading">Degree Works</h2>
-                  <p>
-                    過去の制作は
-                    <a className="text-white" href="https://old.jaxx2104.info/">
-                      こちら
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section> */}
         </div>
         <hr />
       </Layout>
@@ -174,41 +95,6 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 120, height: 120) {
           ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    work1: file(name: { eq: "work1" }) {
-      childImageSharp {
-        sizes(quality: 100) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-    work2: file(name: { eq: "work2" }) {
-      childImageSharp {
-        sizes(quality: 100) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-    work3: file(name: { eq: "work3" }) {
-      childImageSharp {
-        sizes(quality: 100) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-    back1: file(name: { eq: "back1" }) {
-      childImageSharp {
-        sizes(quality: 100) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-    back2: file(name: { eq: "back2" }) {
-      childImageSharp {
-        sizes(quality: 100) {
-          ...GatsbyImageSharpSizes_withWebp
         }
       }
     }
