@@ -16,6 +16,7 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          {/* <script src="https://kit.fontawesome.com/7c896a6b36.js" crossorigin="anonymous"></script> */}
           {this.props.headComponents}
           <link
             href="/img/apple-touch-icon.png"
