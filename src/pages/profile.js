@@ -1,17 +1,16 @@
-import { graphql } from "gatsby";
-import get from "lodash/get";
-import Img from "gatsby-image";
-import React from "react";
-
-import { siteMetadata } from "../../gatsby-config";
-import Layout from "components/layout";
-import Meta from "components/meta";
-import Icon from "components/icon";
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import Img from 'gatsby-image';
+import React from 'react';
+import Layout from 'components/layout';
+import Meta from 'components/meta';
+import Icon from 'components/icon';
+import { siteMetadata } from '../../gatsby-config';
 
 class Profile extends React.Component {
   render() {
     const { location, data } = this.props;
-    const profile = get(data, "profile.childImageSharp.fixed");
+    const profile = get(data, 'profile.childImageSharp.fixed');
 
     return (
       <Layout footer={false} location={location}>
@@ -23,20 +22,43 @@ class Profile extends React.Component {
               <h1>Charyum Park</h1>
               <p className="lead text-muted">Front-end developer capable of server development</p>
               <div className="profile-link-wrap">
-                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="mailto:ryum91@gmail.com">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="profile-link"
+                  href="mailto:ryum91@gmail.com"
+                >
                   <div className="icon" title="Mail">
                     <svg viewBox="0 0 24 24" className="svg-inline--fa fa-w-16">
-                      <path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+                      <path
+                        fill="currentColor"
+                        d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"
+                      />
                     </svg>
                   </div>
                 </a>
-                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="https://github.com/ryum91">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="profile-link"
+                  href="https://github.com/ryum91"
+                >
                   <Icon title="Github" name="github" />
                 </a>
-                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="https://www.linkedin.com/in/charyum-park/">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="profile-link"
+                  href="https://www.linkedin.com/in/charyum-park/"
+                >
                   <Icon title="Linkedin" name="linkedin" />
                 </a>
-                <a target="_blank" rel="noopener noreferrer" className="profile-link" href="https://twitter.com/ryum91">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="profile-link"
+                  href="https://twitter.com/ryum91"
+                >
                   <Icon title="Twitter" name="twitter" />
                 </a>
               </div>
@@ -65,9 +87,12 @@ class Profile extends React.Component {
                 </div>
                 <div className="col-lg-3 col-6">
                   <div className="icon">
-                  <svg viewBox="0 0 22 22" className="svg-inline--fa">
-                    <path fill="currentColor" d="M3,3H21V21H3V3M13.71,17.86C14.21,18.84 15.22,19.59 16.8,19.59C18.4,19.59 19.6,18.76 19.6,17.23C19.6,15.82 18.79,15.19 17.35,14.57L16.93,14.39C16.2,14.08 15.89,13.87 15.89,13.37C15.89,12.96 16.2,12.64 16.7,12.64C17.18,12.64 17.5,12.85 17.79,13.37L19.1,12.5C18.55,11.54 17.77,11.17 16.7,11.17C15.19,11.17 14.22,12.13 14.22,13.4C14.22,14.78 15.03,15.43 16.25,15.95L16.67,16.13C17.45,16.47 17.91,16.68 17.91,17.26C17.91,17.74 17.46,18.09 16.76,18.09C15.93,18.09 15.45,17.66 15.09,17.06L13.71,17.86M13,11.25H8V12.75H9.5V20H11.25V12.75H13V11.25Z" />
-                  </svg>
+                    <svg viewBox="0 0 22 22" className="svg-inline--fa">
+                      <path
+                        fill="currentColor"
+                        d="M3,3H21V21H3V3M13.71,17.86C14.21,18.84 15.22,19.59 16.8,19.59C18.4,19.59 19.6,18.76 19.6,17.23C19.6,15.82 18.79,15.19 17.35,14.57L16.93,14.39C16.2,14.08 15.89,13.87 15.89,13.37C15.89,12.96 16.2,12.64 16.7,12.64C17.18,12.64 17.5,12.85 17.79,13.37L19.1,12.5C18.55,11.54 17.77,11.17 16.7,11.17C15.19,11.17 14.22,12.13 14.22,13.4C14.22,14.78 15.03,15.43 16.25,15.95L16.67,16.13C17.45,16.47 17.91,16.68 17.91,17.26C17.91,17.74 17.46,18.09 16.76,18.09C15.93,18.09 15.45,17.66 15.09,17.06L13.71,17.86M13,11.25H8V12.75H9.5V20H11.25V12.75H13V11.25Z"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>

@@ -1,16 +1,16 @@
-import { graphql } from "gatsby";
-import React from "react";
-import get from "lodash/get";
-
-import Post from "templates/post";
-import Meta from "components/meta";
-import Layout from "components/layout";
+import { graphql } from 'gatsby';
+import React from 'react';
+import get from 'lodash/get';
+import Post from 'templates/post';
+import Meta from 'components/meta';
+import Layout from 'components/layout';
 
 const BlogIndex = ({ data, location }) => {
-  const posts = get(data, "remark.posts");
+  const posts = get(data, 'remark.posts');
+
   return (
     <Layout location={location}>
-      <Meta site={get(data, "site.meta")} />
+      <Meta site={get(data, 'site.meta')} />
       {posts.map(({ post }, i) => (
         <Post
           data={post}
@@ -38,9 +38,7 @@ export const pageQuery = graphql`
         adsense
       }
     }
-    remark: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    remark: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       posts: edges {
         post: node {
           html

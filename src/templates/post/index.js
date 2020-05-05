@@ -1,95 +1,35 @@
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-import Helmet from "react-helmet";
-import React from "react";
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import Helmet from 'react-helmet';
+import React from 'react';
 
-import get from "lodash/get";
-import map from "lodash/map";
+import get from 'lodash/get';
+import map from 'lodash/map';
 
-import Adsense from "components/adsense";
-import Utterances from "components/utterances";
+import Adsense from 'components/adsense';
+import Utterances from 'components/utterances';
 
-import "./style.scss";
+import './style.scss';
 
-const Post = ({ data, options, site }) => {
-  const {
-    category,
-    tags,
-    description,
-    title,
-    path,
-    date,
-    image
-  } = data.frontmatter;
-  const { isIndex, adsense } = options;
-  const isList = isIndex;
-  const html = get(data, "html");
-  const isMore = isIndex && !!html.match("<!--more-->");
-  const fluid = get(image, "childImageSharp.fluid");
-  return (
-    <div className="article" key={path}>
-      {!isList && <Helmet meta={[
-        {
-          property: "og:image",
-          content: `${site.url}${fluid.src}`
-        },
-        {
-          property: "og:description",
-          content: description
-        }
-      ]} />}
-      <div className="container">
-        <div className="info">
-          <Link style={{ boxShadow: "none" }} to={path}>
-            <h1 className="title">{title}</h1>
-            <time dateTime={date}>{date}</time>
-          </Link>
-          {Badges({ items: [category], primary: true })}
-          {Badges({ items: tags })}
-        </div>
-        <div className="content">
-          {fluid ? (
-            <Img fluid={fluid} style={{ display: "block", margin: "0 auto" }} />
-            ) : (
-              ""
-              )}
-          { isMore ? (
-            <p>{description}</p>
-          ) : (
-            ""
-          )}
-        </div>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{
-            __html: isMore ? getDescription(html) : html
-          }}
-        />
-        {isMore ? Button({ path, label: "MORE", primary: true }) : ""}
-        {getAd(isIndex, adsense)}
-      </div>
-      <hr className="page-hr" />
-      {!isList && (
-        <Utterances />
-      )}
-      {!isList && (
-        <hr className="page-hr" />
-      )}
-    </div>
-  );
-};
-
-export default Post;
+const Badges = ({ items, primary }) =>
+  map(items, (item, i) => {
+    return (
+      <span className={`badge ${primary ? 'badge-primary' : 'badge-secondary'}`} key={i}>
+        {item}
+      </span>
+    );
+  });
 
 const getAd = (isIndex, adsense) => {
-  return !isIndex ? <Adsense clientId={adsense} slotId="" format="auto" /> : "";
+  return !isIndex ? <Adsense clientId={adsense} slotId="" format="auto" /> : '';
 };
 
-const getDescription = body => {
-  body = body.replace(/<blockquote>/g, '<blockquote class="blockquote">');
-  if (body.match("<!--more-->")) {
-    body = body.split("<!--more-->");
-    if (typeof body[0] !== "undefined") {
+const getDescription = html => {
+  let body = html.replace(/<blockquote>/g, '<blockquote class="blockquote">');
+
+  if (body.match('<!--more-->')) {
+    body = body.split('<!--more-->');
+    if (typeof body[0] !== 'undefined') {
       return body[0];
     }
   }
@@ -100,7 +40,7 @@ const Button = ({ path, label, primary }) => (
   <Link className="readmore" to={path}>
     <span
       className={`btn btn-outline-primary btn-block ${
-        primary ? "btn-outline-primary" : "btn-outline-secondary"
+        primary ? 'btn-outline-primary' : 'btn-outline-secondary'
       }`}
     >
       {label}
@@ -108,14 +48,57 @@ const Button = ({ path, label, primary }) => (
   </Link>
 );
 
-const Badges = ({ items, primary }) =>
-  map(items, (item, i) => {
-    return (
-      <span
-        className={`badge ${primary ? "badge-primary" : "badge-secondary"}`}
-        key={i}
-      >
-        {item}
-      </span>
-    );
-  });
+const Post = ({ data, options, site }) => {
+  const { category, tags, description, title, path, date, image } = data.frontmatter;
+  const { isIndex, adsense } = options;
+  const isList = isIndex;
+  const html = get(data, 'html');
+  const isMore = isIndex && !!html.match('<!--more-->');
+  const fluid = get(image, 'childImageSharp.fluid');
+
+  return (
+    <div className="article" key={path}>
+      {!isList && (
+        <Helmet
+          meta={[
+            {
+              property: 'og:image',
+              content: `${site.url}${fluid.src}`
+            },
+            {
+              property: 'og:description',
+              content: description
+            }
+          ]}
+        />
+      )}
+      <div className="container">
+        <div className="info">
+          <Link style={{ boxShadow: 'none' }} to={path}>
+            <h1 className="title">{title}</h1>
+            <time dateTime={date}>{date}</time>
+          </Link>
+          {Badges({ items: [category], primary: true })}
+          {Badges({ items: tags })}
+        </div>
+        <div className="content">
+          {fluid ? <Img fluid={fluid} style={{ display: 'block', margin: '0 auto' }} /> : ''}
+          {isMore ? <p>{description}</p> : ''}
+        </div>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{
+            __html: isMore ? getDescription(html) : html
+          }}
+        />
+        {isMore ? Button({ path, label: 'MORE', primary: true }) : ''}
+        {getAd(isIndex, adsense)}
+      </div>
+      <hr className="page-hr" />
+      {!isList && <Utterances />}
+      {!isList && <hr className="page-hr" />}
+    </div>
+  );
+};
+
+export default Post;

@@ -1,6 +1,7 @@
-const each = require("lodash/each");
-const path = require("path");
-const PostTemplate = path.resolve("./src/templates/index.js");
+const each = require('lodash/each');
+const path = require('path');
+
+const PostTemplate = path.resolve('./src/templates/index.js');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -30,6 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         `
       ).then(({ errors, data }) => {
         if (errors) {
+          // eslint-disable-next-line no-console
           console.log(errors);
           reject(errors);
         }
@@ -37,20 +39,24 @@ exports.createPages = ({ graphql, actions }) => {
         // Create blog posts & pages.
         const items = data.allFile.edges;
         const posts = items.filter(({ node }) => /posts/.test(node.name));
+
         each(posts, ({ node }) => {
           if (!node.remark) return;
-          const { path } = node.remark.frontmatter;
+          const { path: postPath } = node.remark.frontmatter;
+
           createPage({
-            path,
+            path: postPath,
             component: PostTemplate
           });
         });
 
         const pages = items.filter(({ node }) => /page/.test(node.name));
+
         each(pages, ({ node }) => {
           if (!node.remark) return;
           const { name } = path.parse(node.path);
           const PageTemplate = path.resolve(node.path);
+
           createPage({
             path: name,
             component: PageTemplate
@@ -65,9 +71,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        components: path.resolve(__dirname, "src/components"),
-        templates: path.resolve(__dirname, "src/templates"),
-        scss: path.resolve(__dirname, "src/scss")
+        components: path.resolve(__dirname, 'src/components'),
+        templates: path.resolve(__dirname, 'src/templates'),
+        scss: path.resolve(__dirname, 'src/scss')
       }
     }
   });
