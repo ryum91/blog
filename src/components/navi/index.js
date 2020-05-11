@@ -19,8 +19,8 @@ class Navi extends React.Component {
                   Home
                 </Link>
               </li>
-              <li className={location.pathname === '/category/' ? 'nav-item active' : 'nav-item'}>
-                <Link to="/category/" className="nav-link">
+              <li className={location.pathname === '/categories/' ? 'nav-item active' : 'nav-item'}>
+                <Link to="/categories/" className="nav-link">
                   Categories
                 </Link>
               </li>
