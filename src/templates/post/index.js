@@ -11,10 +11,16 @@ import Utterances from 'components/utterances';
 
 import './style.scss';
 
-const Badges = ({ items, primary }) =>
+const Badges = ({ items, isCategory }) =>
   map(items, (item, i) => {
     return (
-      <span className={`badge ${primary ? 'badge-primary' : 'badge-secondary'}`} key={i}>
+      <span
+        className={`badge ${isCategory ? 'badge-primary' : 'badge-secondary'}`}
+        key={i}
+        onClick={() => {
+          window.location.href = `${isCategory ? '/category/' : '/tag/'}${item}`;
+        }}
+      >
         {item}
       </span>
     );
@@ -78,7 +84,7 @@ const Post = ({ data, options, site }) => {
             <h1 className="title">{title}</h1>
             <time dateTime={date}>{date}</time>
           </Link>
-          {Badges({ items: [category], primary: true })}
+          {Badges({ items: [category], isCategory: true })}
           {Badges({ items: tags })}
         </div>
         <div className="content">
