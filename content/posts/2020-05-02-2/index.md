@@ -9,8 +9,8 @@ description: B2B 솔루션 개발에서 B2C 서비스 개발로 이직을 결심
 tags:
   - career
   - 이직
-  - B2B
-  - B2C
+  - b2b
+  - b2c
 ---
 <!--more-->
 
