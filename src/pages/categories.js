@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { navigate, graphql } from 'gatsby';
 import Meta from 'components/meta';
 import { TagCloud } from 'react-tagcloud';
 import Layout from 'components/layout';
@@ -31,7 +31,7 @@ class Categories extends React.Component {
                 })}
                 disableRandomColor={true}
                 shuffle={false}
-                onClick={tag => (window.location.href = `/category/${tag.value}`)}
+                onClick={tag => navigate(`/category/${tag.value}`)}
               />
             </div>
             <hr />
@@ -50,7 +50,7 @@ class Categories extends React.Component {
                   luminosity: 'light',
                   hue: 'blue'
                 }}
-                onClick={tag => (window.location.href = `/tag/${tag.value}`)}
+                onClick={tag => navigate(`/tag/${tag.value}`)}
               />
             </div>
           </div>
