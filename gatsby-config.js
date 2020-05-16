@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: 'https://dev.ryum.site',
     author: 'RYUM',
     twitter: 'ryum91',
-    adsense: ''
+    adsense: 'ca-pub-3842356134415791'
   },
   pathPrefix: '/',
   plugins: [
