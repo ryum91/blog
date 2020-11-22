@@ -1,5 +1,5 @@
-@import '../../scss/colors.scss';
-@import '../../scss/fonts.scss';
+@import 'scss/colors.scss';
+@import 'scss/fonts.scss';
 
 section {
   padding: 50px 0;
@@ -64,5 +64,20 @@ section {
     &[data-emergence='hidden'] {
       opacity: 0;
     }
+  }
+}
+
+.profile-link {
+  display: inline-block;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .icon {
+    margin: 0;
+    color: #fff;
   }
 }

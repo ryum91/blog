@@ -1,9 +1,5 @@
-const each = require('lodash/each');
 const path = require('path');
-
-const PostTemplate = path.resolve('./src/templates/index.js');
-const TagTemplate = path.resolve('./src/templates/tag/index.js');
-const CategoryTemplate = path.resolve('./src/templates/category/index.js');
+const PostTemplate = path.resolve('./src/templates/index.tsx');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -13,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allFile(filter: { extension: { regex: "/md|js/" } }, limit: 1000) {
+            allFile(filter: { extension: { regex: "/md|tsx/" } }, limit: 1000) {
               edges {
                 node {
                   id
@@ -29,21 +25,10 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            tags: allMarkdownRemark(limit: 2000) {
-              group(field: frontmatter___tags) {
-                fieldValue
-              }
-            }
-            categories: allMarkdownRemark(limit: 2000) {
-              group(field: frontmatter___category) {
-                fieldValue
-              }
-            }
           }
         `
       ).then(({ errors, data }) => {
         if (errors) {
-          // eslint-disable-next-line no-console
           console.log(errors);
           reject(errors);
         }
@@ -51,50 +36,20 @@ exports.createPages = ({ graphql, actions }) => {
         // Create blog posts & pages.
         const items = data.allFile.edges;
         const posts = items.filter(({ node }) => /posts/.test(node.name));
-
-        each(posts, ({ node }) => {
+        posts.forEach(({ node }) => {
           if (!node.remark) return;
-          const { path: postPath } = node.remark.frontmatter;
-
+          const { path } = node.remark.frontmatter;
           createPage({
-            path: postPath,
+            path,
             component: PostTemplate
           });
         });
 
-        const { group: tags } = data.tags;
-
-        // Make tag pages
-        tags.forEach(tag => {
-          createPage({
-            path: `/tag/${tag.fieldValue}/`,
-            component: TagTemplate,
-            context: {
-              tag: tag.fieldValue
-            }
-          });
-        });
-
-        const { group: categories } = data.categories;
-
-        // Make tag pages
-        categories.forEach(category => {
-          createPage({
-            path: `/category/${category.fieldValue}/`,
-            component: CategoryTemplate,
-            context: {
-              category: category.fieldValue
-            }
-          });
-        });
-
         const pages = items.filter(({ node }) => /page/.test(node.name));
-
-        each(pages, ({ node }) => {
+        pages.forEach(({ node }) => {
           if (!node.remark) return;
           const { name } = path.parse(node.path);
           const PageTemplate = path.resolve(node.path);
-
           createPage({
             path: name,
             component: PageTemplate
@@ -109,9 +64,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        components: path.resolve(__dirname, 'src/components'),
-        templates: path.resolve(__dirname, 'src/templates'),
-        scss: path.resolve(__dirname, 'src/scss')
+        src: path.resolve(__dirname, 'src')
       }
     }
   });
