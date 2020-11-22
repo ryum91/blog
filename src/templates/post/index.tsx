@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
 import { Adsense } from 'src/components/adsense';
+import { Utterances } from 'src/components/utterances';
 import { Button } from 'src/components/button';
 import { Badge } from 'src/components/badge';
 import { PostByPathQuery } from 'src/types/graphql-types';
@@ -42,7 +43,7 @@ export const Post = ({ data, options }: Props) => {
       <div className="container">
         <div className="info">
           <Link style={{ boxShadow: 'none' }} to={path}>
-            <h1>{frontmatter?.title}</h1>
+            <h1 className="title">{frontmatter?.title}</h1>
             <time dateTime={frontmatter?.date}>{frontmatter?.date}</time>
           </Link>
           <Badge label={frontmatter?.category || ''} primary={true} />
@@ -51,13 +52,13 @@ export const Post = ({ data, options }: Props) => {
           ))}
         </div>
         <div className="content">
-          <p>{frontmatter?.description}</p>
           {image?.childImageSharp?.fluid && (
             <Img
               fluid={image.childImageSharp.fluid as FluidObject}
               style={{ display: 'block', margin: '0 auto' }}
             />
           )}
+          {isMore && <p>{frontmatter?.description}</p>}
         </div>
         <div
           className="content"
@@ -68,6 +69,9 @@ export const Post = ({ data, options }: Props) => {
         {isMore && <Button path={path} label="MORE" primary={true} />}
         {!isIndex && <Adsense clientId={adsense} slotId="" format="auto" />}
       </div>
+      <hr className="page-hr" />
+      {!isIndex && <Utterances />}
+      {!isIndex && <hr className="page-hr" />}
     </div>
   );
 };

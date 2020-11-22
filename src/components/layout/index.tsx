@@ -14,9 +14,10 @@ import 'font-awesome/css/font-awesome.css';
 interface Props {
   children?: React.ReactNode;
   location: Location;
+  isFooter?: boolean;
 }
 
-export const Layout = ({ children, location }: Props) => {
+export const Layout = ({ children, location, isFooter = true }: Props) => {
   useEffect(() => {
     emergence.init();
   });
@@ -25,7 +26,9 @@ export const Layout = ({ children, location }: Props) => {
     <div>
       <Navibar title={siteMetadata.title} location={location} />
       {children}
-      <Footer title={siteMetadata.title} author={siteMetadata.author} />
+      {isFooter && (
+        <Footer title={siteMetadata.title} author={siteMetadata.author} />
+      )}
     </div>
   );
 };

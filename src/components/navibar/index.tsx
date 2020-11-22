@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import './style.scss';
+
 interface Props {
   title: string;
   location: Location;
@@ -22,6 +24,17 @@ export const Navibar = ({ location, title }: Props) => {
             >
               <Link to="/" className="nav-link">
                 Home
+              </Link>
+            </li>
+            <li
+              className={
+                location.pathname === '/categories/'
+                  ? 'nav-item active'
+                  : 'nav-item'
+              }
+            >
+              <Link to="/categories/" className="nav-link">
+                Categories
               </Link>
             </li>
             <li

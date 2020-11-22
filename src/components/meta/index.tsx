@@ -40,7 +40,7 @@ export const Meta = ({ site, title }: Props) => {
         },
         {
           property: 'og:image',
-          content: `${siteUrl}/img/profile.jpg`
+          content: `${siteUrl}/img/dev_ryum.jpg`
         }
       ]}
     />

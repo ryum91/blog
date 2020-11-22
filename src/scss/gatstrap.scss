@@ -7,10 +7,11 @@
 // Color system
 //
 @import './colors.scss';
+@import './theme.scss';
 
 // Reassign color vars to semantic color scheme
 $theme-colors: (
-  primary: $purple,
+  primary: #1e2d3c,
   secondary: $gray-600,
   success: $green,
   info: $cyan,
@@ -46,8 +47,8 @@ $container-max-widths: (
 //
 // Settings for the `<body>` element.
 
-$body-bg: $white !default;
-$body-color: $gray-700 !default;
+$body-bg: #0d1c2b !default;
+$body-color: #e3e5e7 !default;
 $inverse-bg: $gray-900 !default;
 $inverse-color: $gray-600 !default;
 
@@ -78,6 +79,14 @@ p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
+}
+
+a {
+  color: #56aaff;
+}
+
+a:hover {
+  color: #188cff;
 }
 
 img {
