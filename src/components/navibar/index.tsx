@@ -28,17 +28,6 @@ export const Navibar = ({ location, title }: Props) => {
             </li>
             <li
               className={
-                location.pathname === '/categories/'
-                  ? 'nav-item active'
-                  : 'nav-item'
-              }
-            >
-              <Link to="/categories/" className="nav-link">
-                Categories
-              </Link>
-            </li>
-            <li
-              className={
                 location.pathname === '/profile/'
                   ? 'nav-item active'
                   : 'nav-item'

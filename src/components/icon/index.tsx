@@ -3,36 +3,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library, IconName } from '@fortawesome/fontawesome-svg-core';
 
 import {
-  faApple,
-  faAws,
+  faCss3Alt,
   faFacebook,
   faGithub,
   faHtml5,
-  faJs,
+  faLinkedin,
   faNode,
-  faPhp,
+  faJava,
   faReact,
   faTwitter,
-  faVuejs
+  faVuejs,
+  faJsSquare
 } from '@fortawesome/free-brands-svg-icons';
 import './style.scss';
 
 library.add(
-  faApple,
-  faAws,
   faFacebook,
   faGithub,
   faHtml5,
-  faJs,
+  faCss3Alt,
+  faJsSquare,
   faNode,
-  faPhp,
+  faJava,
   faReact,
   faTwitter,
-  faVuejs
+  faVuejs,
+  faLinkedin
 );
 
 interface Props {
-  name: 'apple' | 'aws' | 'php' | 'node' | 'vuejs' | 'react' | 'js' | 'html5';
+  name: IconName;
   title: string;
 }
 
