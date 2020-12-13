@@ -3,10 +3,10 @@ title: 대학 졸업 후 첫 직장 회고
 date: '2020-05-23T09:00:00.169Z'
 layout: post
 path: '/6'
-category: essay
 image: ./6_thumbnail.jpg
 description: 대학 졸업 후 4년 8개월간 다닌 첫 직장에서의 입사부터 퇴사까지의 회고록
 tags:
+  - essay
   - career
 ---
 
@@ -75,9 +75,7 @@ tags:
 - 리펙토링.. 리펙토링.. 또 리펙토링
 - Maven을 쓰지 않고 수동으로 Dependency 관리했던 프로젝트
 - Java 코드에서 JavaScript 코드를 만들어 내려주는 구조
--
-
----
+- ***
 
 ## Webpack을 알게되다.
 
