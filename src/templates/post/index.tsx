@@ -46,7 +46,6 @@ export const Post = ({ data, options }: Props) => {
             <h1 className="title">{frontmatter?.title}</h1>
             <time dateTime={frontmatter?.date}>{frontmatter?.date}</time>
           </Link>
-          <Badge label={frontmatter?.category || ''} primary={true} />
           {(frontmatter?.tags || []).map((tag, index) => (
             <Badge label={tag as string} primary={false} key={index} />
           ))}

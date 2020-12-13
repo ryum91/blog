@@ -1,15 +1,15 @@
 ---
 title: Vue 2.x 버전과 TypeScript 를 같이 써 본 후기
-date: "2020-05-12T09:00:00.169Z"
+date: '2020-05-12T09:00:00.169Z'
 layout: post
-path: "/5"
-category: vue
+path: '/5'
 image: ./5_thumbnail.jpg
 description: Vue 2.x 버전과 TypeScript 를 같이 써 본 후기를 작성해봤습니다.
 tags:
   - vue
   - typescript
 ---
+
 <!--more-->
 
 Vue 2.x 버전과 TypeScript를 같이 써 본 후기를 작성해봤습니다.
@@ -29,7 +29,8 @@ Vue 2.x 버전에서 공식으로 지원하는 TypeScript와의 연동 방법은
 ---
 
 ## 개발환경 구축
-Vue 2버전과 TypeScript를 같이 사용하기 위한 환경 구축은 제일 간단하게 `vue-cli`를 사용하는 것이다.  
+
+Vue 2버전과 TypeScript를 같이 사용하기 위한 환경 구축은 제일 간단하게 `vue-cli`를 사용하는 것이다.
 
 ```bash
 # Execute command
@@ -49,6 +50,7 @@ Vue CLI v4.3.1
 ---
 
 ## Class 방식의 Vue Component
+
 'vue-class-component' 와 'vue-property-component' 이 두 개 라이브러리의 공통점은 Vue Component를 Class 방식으로 작성할 수 있는 것이다.  
 따라서 TypeScript 와의 조합도 어느정도 어울린다.
 
@@ -87,6 +89,7 @@ export default class Counter extends Vue {
 'vue-property-decorator' 에서 `Vue` 와 `Component` 를 둘 다 import 받아 사용할 수 있다.
 
 ## vuex
+
 vuex를 사용한다면 `vuex-class` 까지 같이 사용하면 아주 깔끔하게 개발 환경을 구축할 수 있다.
 
 최종적인 예제 소스는 아래와 같다.
@@ -135,23 +138,26 @@ export default class Login extends Vue {
 </style>
 ```
 
-좀 더 자세한 사용 방법을 알고싶다면, 
+좀 더 자세한 사용 방법을 알고싶다면,
 [vuex-class](https://github.com/ktsn/vuex-class) 와 [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) 에서 확인할 수 있다.
 
 ---
 
 # 후기
+
 이 조합을 먼저 사이드 프로젝트에 적용해봤고, 이후 업무적으로도 도입을 진행했었다.
 그 결과 여러가지 느낀 점이나, 나만의 규칙들이 있었는데 그런 것들을 간략하게 소개한다.
 
 ---
 
 ## 이중 타입 선언
+
 이런식으로 개발을 하다보면 이중으로 타입을 선언해야 하는 부분이 종종 있다.
 대표적으로 `vuex-class`로 Helper를 사용하다보면, 가지고 온 Getter나 Mutation, Action 같은 것들을 모두 수동으로 타입을 선언해줘야 한다.
 vuex 모듈을 선언할 때도 데이터의 타입을 선언해야 하는데, Helper로 가지고 올 때도 타입을 선언해야하는 것이다.
 
 또한 `refs` 를 이용해서 template에서 사용 된 컴포넌트에 접근하고자 할 때도 컴포넌트 타입으로 수동으로 변환을 해줘야한다.
+
 ```js
 this.$refs.testComponent as TestComponent
 ```
@@ -159,6 +165,7 @@ this.$refs.testComponent as TestComponent
 ---
 
 ## Vue의 타입과 TypeScript의 타입
+
 Props를 선언할 때 Props의 Type과 기본 값, 필수 여부를 선언할 수 있다.
 하지만 이는 TypeScript의 타입과 별개의 타입이다. 따라서 두 개의 타입이 맞지 않을 수 있고,
 두 번 타입을 선언해줘야 하는 불편함이 있다.
@@ -172,6 +179,7 @@ Props에 기본으로 선언하는 타입은 Object가 되게 되고, TypeScript
 ---
 
 ## vuex-class 사용 규칙
+
 vuex에서 관리하는 데이터가 커지면 커질수록 vuex 내부에서 Module 단위로 쪼개서 관리한다.
 이때 사용되는 개념이 `namespace` 인데, 이 namespace를 똑같이 vuex-class에서 사용할 수 있다.
 
@@ -181,6 +189,7 @@ private vuexData!: string;
 ```
 
 이는 Getter와 Mutation, Action 모두 사용할 수 있다. 그러나 State를 직접 가져다 쓸 때는 이런 형식으로 namespace를 사용할 수 없다.
+
 ```js
 @State(state => state.store.vuex)
 private vuexData!: string;
@@ -191,11 +200,13 @@ private vuexData!: string;
 ---
 
 ## 자동 완성 (Intellisense)
+
 일반적인 Vue Component를 작성한 뒤 다른 Vue Component에서 가져다 쓸 때 Template 에서 자동 완성 기능을 사용할 수 있다.
 (ex. props, method 등...)
 하지만 Class 방식으로 Vue Component를 가져다 쓰면 이러한 자동 완성이 되지 않는다.  
 그 이유는 Class 방식으로 컴포넌트를 작성하면 Decorator를 이용하게 되는데, 이 Decorator가 컴파일 시점에서 동작하기 때문이다.
 따라서 이 점은 매우 불편한 점 중 하나라고 생각한다.
+
 > vuetify 같은 것들은 TypeScript를 이용해도 자동완성이 되는 것 같은데. 정확히 방법을 모르겠다.
 
 ---
