@@ -1,5 +1,6 @@
 const path = require('path');
 const PostTemplate = path.resolve('./src/templates/index.tsx');
+const TagTemplate = path.resolve('./src/templates/tag/index.tsx');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -23,6 +24,11 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                   }
                 }
+              }
+            }
+            tags: allMarkdownRemark(limit: 2000) {
+              group(field: frontmatter___tags) {
+                fieldValue
               }
             }
           }
@@ -53,6 +59,18 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: name,
             component: PageTemplate
+          });
+        });
+
+        console.log('data.tags', data.tags);
+        const { group: tags } = data.tags;
+        tags.forEach((tag) => {
+          createPage({
+            path: `/tag/${tag.fieldValue}/`,
+            component: TagTemplate,
+            context: {
+              tag: tag.fieldValue
+            }
           });
         });
       })

@@ -17,22 +17,17 @@ export const Navibar = ({ location, title }: Props) => {
         </Link>
         <div className="navbar-nav-scroll">
           <ul className="navbar-nav bd-navbar-nav flex-row">
-            <li
-              className={
-                location.pathname === '/' ? 'nav-item active' : 'nav-item'
-              }
-            >
+            <li className={location.pathname === '/' ? 'nav-item active' : 'nav-item'}>
               <Link to="/" className="nav-link">
                 Home
               </Link>
             </li>
-            <li
-              className={
-                location.pathname === '/profile/'
-                  ? 'nav-item active'
-                  : 'nav-item'
-              }
-            >
+            <li className={location.pathname === '/tags/' ? 'nav-item active' : 'nav-item'}>
+              <Link to="/tags/" className="nav-link">
+                Tags
+              </Link>
+            </li>
+            <li className={location.pathname === '/profile/' ? 'nav-item active' : 'nav-item'}>
               <Link to="/profile/" className="nav-link">
                 Profile
               </Link>

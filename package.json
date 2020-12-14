@@ -26,7 +26,8 @@
     "gatsby-remark-smartypants": "2.3.3",
     "gatsby-source-filesystem": "2.3.10",
     "gatsby-transformer-remark": "2.8.14",
-    "gatsby-transformer-sharp": "2.5.4"
+    "gatsby-transformer-sharp": "2.5.4",
+    "react-d3-cloud": "^0.7.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.32",
