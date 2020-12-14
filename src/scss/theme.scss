@@ -8,7 +8,7 @@ code[class*='language-'] {
   color: #d4d4d4;
   font-size: 16px;
   text-shadow: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: 'D2 coding';
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -218,4 +218,13 @@ pre[class*='language-'] > code[class*='language-'] {
   pointer-events: none;
   line-height: inherit;
   white-space: pre;
+}
+
+blockquote > p {
+  font-size: 14px;
+  margin: 12px 0 !important;
+}
+
+.tag-container {
+  font-weight: bold;
 }

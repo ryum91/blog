@@ -21,7 +21,8 @@
 
     .badge {
       margin-right: 3px;
-      // cursor: pointer;
+      padding: 0.3em 0.4em !important;
+      cursor: pointer;
     }
 
     time {
@@ -99,7 +100,7 @@
   border-radius: 5px;
 
   & > code {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
