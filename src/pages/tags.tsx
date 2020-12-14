@@ -35,8 +35,8 @@ const Tags = ({ location, data }: Props) => {
             data={words}
             font="NanumBarunGothic"
             padding={20}
-            width={document.body.offsetWidth - 30}
-            height={document.body.offsetHeight * 0.6}
+            width={window.document.body.offsetWidth - 30}
+            height={window.document.body.offsetHeight * 0.6}
             fontSizeMapper={fontSizeMapper}
             onWordClick={onWordClick}
           />
