@@ -62,7 +62,6 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        console.log('data.tags', data.tags);
         const { group: tags } = data.tags;
         tags.forEach((tag) => {
           createPage({
