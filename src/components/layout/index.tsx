@@ -20,15 +20,13 @@ interface Props {
 export const Layout = ({ children, location, isFooter = true }: Props) => {
   useEffect(() => {
     emergence.init();
-  });
+  }, []);
 
   return (
     <div>
       <Navibar title={siteMetadata.title} location={location} />
       {children}
-      {isFooter && (
-        <Footer title={siteMetadata.title} author={siteMetadata.author} />
-      )}
+      {isFooter && <Footer title={siteMetadata.title} author={siteMetadata.author} />}
     </div>
   );
 };
