@@ -2,9 +2,11 @@ import React, { useCallback, useMemo } from 'react';
 import { navigate, graphql } from 'gatsby';
 import TagCloud from 'react-tag-cloud';
 import randomcolor from 'randomcolor';
+import { Button } from '@material-ui/core';
 
 import { Meta } from 'src/components/meta';
 import { Layout } from 'src/components/layout';
+import { useForceUpdate } from 'src/hooks/useForceUpdate';
 
 import { siteMetadata } from '../../gatsby-config';
 import './tags.scss';
@@ -20,6 +22,7 @@ interface Props {
 }
 
 const Tags = ({ location, data }: Props) => {
+  const forceUpdate = useForceUpdate();
   const words = useMemo(() => {
     return data.tags.group.map((word) => {
       return {
@@ -29,7 +32,7 @@ const Tags = ({ location, data }: Props) => {
     });
   }, [data]);
 
-  const onWordClick = useCallback((word: string) => {
+  const onClickWord = useCallback((word: string) => {
     navigate(`/tag/${word.toLowerCase()}`);
   }, []);
 
@@ -39,11 +42,13 @@ const Tags = ({ location, data }: Props) => {
       <div className="article">
         <div className="container tag-container">
           <TagCloud
-            className="tag-cloud"
             style={{
               fontFamily: 'NanumBarunGothic',
               fontWeight: 'bold',
-              color: () => randomcolor(),
+              color: () =>
+                randomcolor({
+                  luminosity: 'light'
+                }),
               padding: 5
             }}
           >
@@ -51,13 +56,18 @@ const Tags = ({ location, data }: Props) => {
               <div
                 key={idx}
                 className="tag-item"
-                onClick={() => onWordClick(word.text)}
+                onClick={() => onClickWord(word.text)}
                 style={{ fontSize: word.value * 25 }}
               >
                 {word.text}
               </div>
             ))}
           </TagCloud>
+        </div>
+        <div className="tag-footer">
+          <Button className="reset-btn" variant="outlined" size="small" onClick={forceUpdate}>
+            reset
+          </Button>
         </div>
       </div>
     </Layout>

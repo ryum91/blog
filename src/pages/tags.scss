@@ -2,16 +2,26 @@
   font-weight: bold;
   width: 100%;
   height: 400px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    .tag-item {
+      transition: 1.4s;
+      cursor: pointer;
+    }
+  }
 }
 
-.tag-cloud {
+.tag-footer {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
 
-  .tag-item {
-    transition: 1.4s;
-    cursor: pointer;
+  .reset-btn {
+    color: #a4a4a4;
+    border: 1px solid;
   }
 }
