@@ -23,7 +23,13 @@ export const Adsense = ({ clientId, slotId, format }: Props) => {
 
   return clientId ? (
     <div className="ad">
-      <ins className="adsbygoogle" style={{ display: 'block' }} data-ad-client={clientId} data-ad-slot={slotId} data-ad-format={format} />
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client={clientId}
+        data-ad-slot={slotId}
+        data-ad-format={format}
+      />
     </div>
   ) : (
     <></>

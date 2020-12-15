@@ -16,8 +16,16 @@ const HTML = ({ headComponents, body, postBodyComponents }: Props) => {
         {headComponents}
         <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
         <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css"></link>
-        <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css"></link>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css"
+        ></link>
+        <link
+          href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css"
+          rel="stylesheet"
+          type="text/css"
+        ></link>
       </head>
       <body>
         <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />

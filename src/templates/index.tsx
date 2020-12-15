@@ -18,10 +18,7 @@ const Template = ({ data, location }: Props) => {
   return (
     <div>
       <Layout location={location}>
-        <Meta
-          title={data.post?.frontmatter?.title || ''}
-          site={data.site?.meta}
-        />
+        <Meta title={data.post?.frontmatter?.title || ''} site={data.site?.meta} />
         {isPage ? (
           <Post
             data={data}

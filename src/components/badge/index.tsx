@@ -6,9 +6,5 @@ interface Props {
 }
 
 export const Badge = ({ label, primary }: Props) => {
-  return (
-    <span className={`badge ${primary ? 'badge-primary' : 'badge-secondary'}`}>
-      {label}
-    </span>
-  );
+  return <span className={`badge ${primary ? 'badge-primary' : 'badge-secondary'}`}>{label}</span>;
 };

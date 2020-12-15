@@ -10,9 +10,5 @@ interface Props {
 }
 
 export const Page = ({ data }: Props) => {
-  return data.post?.html ? (
-    <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
-  ) : (
-    <></>
-  );
+  return data.post?.html ? <div dangerouslySetInnerHTML={{ __html: data.post.html }} /> : <></>;
 };

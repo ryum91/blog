@@ -25,9 +25,7 @@ const Profile = ({ location, data }: Props) => {
           <div className="container">
             <Img fixed={profile as FixedObject} className="rounded-circle" />
             <h1>Charyum Park</h1>
-            <p className="lead text-muted">
-              Front-end developer capable of server development
-            </p>
+            <p className="lead text-muted">Front-end developer capable of server development</p>
             <div className="profile-link-wrap">
               <a
                 target="_blank"

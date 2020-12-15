@@ -11,10 +11,7 @@ import { PostByPathQuery } from 'src/types/graphql-types';
 import './style.scss';
 
 const getDescription = (content: string): string => {
-  const body = content.replace(
-    /<blockquote>/g,
-    '<blockquote class="blockquote">'
-  );
+  const body = content.replace(/<blockquote>/g, '<blockquote class="blockquote">');
   if (body.match('<!--more-->')) {
     const [description] = body.split('<!--more-->');
     return description;

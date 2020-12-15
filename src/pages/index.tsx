@@ -45,9 +45,7 @@ export const pageQuery = graphql`
         adsense
       }
     }
-    remark: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    remark: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       posts: edges {
         post: node {
           html
