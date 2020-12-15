@@ -1,10 +1,18 @@
 import React, { useCallback, useMemo } from 'react';
 import { navigate, graphql } from 'gatsby';
+import TagCloud from 'react-tag-cloud';
+import randomcolor from 'randomcolor';
+
 import { Meta } from 'src/components/meta';
 import { Layout } from 'src/components/layout';
-import { siteMetadata } from '../../gatsby-config';
 
-import WordCloud, { Word } from 'react-d3-cloud';
+import { siteMetadata } from '../../gatsby-config';
+import './tags.scss';
+
+interface Word {
+  text: string;
+  value: number;
+}
 
 interface Props {
   data: { tags: { group: Word[] } };
@@ -21,9 +29,8 @@ const Tags = ({ location, data }: Props) => {
     });
   }, [data]);
 
-  const fontSizeMapper = useCallback((word: Word) => word.value * 25, []);
-  const onWordClick = useCallback((word: Word) => {
-    navigate(`/tag/${word.text.toLowerCase()}`);
+  const onWordClick = useCallback((word: string) => {
+    navigate(`/tag/${word.toLowerCase()}`);
   }, []);
 
   return (
@@ -31,15 +38,26 @@ const Tags = ({ location, data }: Props) => {
       <Meta site={siteMetadata} title="Tags" />
       <div className="article">
         <div className="container tag-container">
-          <WordCloud
-            data={words}
-            font="NanumBarunGothic"
-            padding={20}
-            width={window.document.body.offsetWidth - 30}
-            height={window.document.body.offsetHeight * 0.6}
-            fontSizeMapper={fontSizeMapper}
-            onWordClick={onWordClick}
-          />
+          <TagCloud
+            className="tag-cloud"
+            style={{
+              fontFamily: 'NanumBarunGothic',
+              fontWeight: 'bold',
+              color: () => randomcolor(),
+              padding: 5
+            }}
+          >
+            {words.map((word, idx) => (
+              <div
+                key={idx}
+                className="tag-item"
+                onClick={() => onWordClick(word.text)}
+                style={{ fontSize: word.value * 25 }}
+              >
+                {word.text}
+              </div>
+            ))}
+          </TagCloud>
         </div>
       </div>
     </Layout>

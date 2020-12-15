@@ -1,0 +1,17 @@
+.tag-container {
+  font-weight: bold;
+  width: 100%;
+  height: 400px;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .tag-item {
+    transition: 1.4s;
+    cursor: pointer;
+  }
+}

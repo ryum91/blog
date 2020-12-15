@@ -7,24 +7,14 @@ declare module 'emergence.js' {
   export default emergence;
 }
 
-declare module 'react-d3-cloud' {
+declare module 'react-tag-cloud' {
   import React from 'react';
 
-  export interface Word {
-    text: string;
-    value: number;
-  }
-  export interface WordCloud {
-    data: Word[];
-    width?: number;
-    height?: number;
-    fontSizeMapper?: (word: Word, idx: number) => number;
-    rotate?: (word: Word) => number;
-    padding?: number;
-    font?: string;
-    onWordClick?: (word: Word) => void;
+  export interface TagCloud {
+    className: string;
+    style: any;
   }
 
-  const WordCloudComp: React.SFC<WordCloud>;
-  export default WordCloudComp;
+  const TagCloudComp: React.SFC<TagCloud>;
+  export default TagCloudComp;
 }
