@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
+import { Footer } from 'src/components/footer';
 import { Adsense } from 'src/components/adsense';
 import { Utterances } from 'src/components/utterances';
-import { Button } from 'src/components/button';
 import { Badge } from 'src/components/badge';
 import { PostByPathQuery } from 'src/types/graphql-types';
 
@@ -31,9 +31,9 @@ export const Post = ({ data, options }: Props) => {
   const frontmatter = data.post?.frontmatter;
   const path = frontmatter?.path || '';
   const image = frontmatter?.image || null;
-  const { isIndex, adsense } = options;
+  const { isIndex: isList, adsense } = options;
   const html = data.post?.html || '';
-  const isMore = isIndex && !!html.match('<!--more-->');
+  const isMore = isList && !!html.match('<!--more-->');
 
   return (
     <div className="article" key={path}>
@@ -48,7 +48,7 @@ export const Post = ({ data, options }: Props) => {
           ))}
         </div>
         <div className="content">
-          {image?.childImageSharp?.fluid && (
+          {!isList && image?.childImageSharp?.fluid && (
             <Img
               fluid={image.childImageSharp.fluid as FluidObject}
               style={{ display: 'block', margin: '0 auto' }}
@@ -56,18 +56,19 @@ export const Post = ({ data, options }: Props) => {
           )}
           {isMore && <p>{frontmatter?.description}</p>}
         </div>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{
-            __html: isMore ? getDescription(html) : html
-          }}
-        />
-        {isMore && <Button path={path} label="MORE" primary={true} />}
-        {!isIndex && <Adsense clientId={adsense} slotId="" format="auto" />}
+        {!isList && (
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: isMore ? getDescription(html) : html
+            }}
+          />
+        )}
+        {!isList && <Adsense clientId={adsense} slotId="" format="auto" />}
       </div>
       <hr className="page-hr" />
-      {!isIndex && <Utterances />}
-      {!isIndex && <hr className="page-hr" />}
+      {!isList && <Footer />}
+      {!isList && <Utterances />}
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Tags = ({ location, data }: Props) => {
   }, []);
 
   return (
-    <Layout isFooter={false} location={location}>
+    <Layout location={location}>
       <Meta site={siteMetadata} title="Tags" />
       <div className="article">
         <div className="container tag-container">

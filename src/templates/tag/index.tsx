@@ -16,7 +16,7 @@ const Tags = ({ pageContext, data, location }: Props) => {
   const header = `"${tag.toUpperCase()}" results ${totalCount} post${totalCount === 1 ? '' : 's'}`;
 
   return (
-    <Layout isFooter={false} location={location}>
+    <Layout location={location}>
       <Meta site={siteMetadata} title={`${tag.toUpperCase()} Tag`} />
       <div className="article">
         <div className="container">

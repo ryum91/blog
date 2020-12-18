@@ -18,7 +18,7 @@ const Profile = ({ location, data }: Props) => {
   const profile = data.profile?.childImageSharp?.fixed;
 
   return (
-    <Layout isFooter={false} location={location}>
+    <Layout location={location}>
       <Meta site={siteMetadata} title="Profile" />
       <div className="article">
         <section className="text-center">
