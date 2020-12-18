@@ -22,7 +22,7 @@ export const Footer = () => (
           className="rounded-circle"
         />
         <div className="profile">
-          <Link to="/profile/">RYUM</Link>
+          <Link to="/about/">RYUM</Link>
           <span>
             카카오페이에서 Front-end 개발을 하고 있습니다.
             <br />

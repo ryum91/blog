@@ -14,12 +14,12 @@ interface Props {
   location: Location;
 }
 
-const Profile = ({ location, data }: Props) => {
+const About = ({ location, data }: Props) => {
   const profile = data.profile?.childImageSharp?.fixed;
 
   return (
     <Layout location={location}>
-      <Meta site={siteMetadata} title="Profile" />
+      <Meta site={siteMetadata} title="About" />
       <div className="article">
         <section className="text-center">
           <div className="container">
@@ -122,7 +122,7 @@ const Profile = ({ location, data }: Props) => {
   );
 };
 
-export default Profile;
+export default About;
 
 export const query = graphql`
   query ProfilePageQuery {

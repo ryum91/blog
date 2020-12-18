@@ -33,7 +33,7 @@ export const Meta = ({ site, title }: Props) => {
         },
         {
           property: 'og:url',
-          content: `${siteUrl}/profile`
+          content: `${siteUrl}/about`
         },
         {
           property: 'og:image',
