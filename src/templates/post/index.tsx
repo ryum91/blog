@@ -44,7 +44,9 @@ export const Post = ({ data, options }: Props) => {
             <time dateTime={frontmatter?.date}>{frontmatter?.date}</time>
           </Link>
           {(frontmatter?.tags || []).map((tag, index) => (
-            <Badge label={tag as string} primary={false} key={index} />
+            <Link key={index} to={`/tag/${tag}`}>
+              <Badge label={tag as string} primary={false} />
+            </Link>
           ))}
         </div>
         <div className="content">
