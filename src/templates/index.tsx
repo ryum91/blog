@@ -58,7 +58,7 @@ export const pageQuery = graphql`
         path
         tags
         description
-        date(formatString: "YYYY/MM/DD")
+        date(formatString: "YYYY.MM.DD")
         image {
           childImageSharp {
             fluid(maxWidth: 500) {
