@@ -2,14 +2,11 @@
 
 .footer-container {
   display: flex;
+  align-items: center;
   background-color: #17283a;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
-
-  .rounded-circle {
-    margin-top: 10px;
-  }
 }
 
 .profile {
@@ -25,6 +22,7 @@
 
   span {
     color: #a5a5a5;
+    font-size: 13px;
   }
 
   .link {

@@ -24,9 +24,8 @@ export const Footer = () => (
         <div className="profile">
           <Link to="/about/">RYUM</Link>
           <span>
-            카카오페이에서 Front-end 개발을 하고 있습니다.
-            <br />
-            인프라/서버개발 등 각종 개발 지식에도 관심이 많아요.
+            카카오페이에서 프론트엔드 개발을 하고 있습니다. 인프라/서버개발 등 각종 개발 지식에도
+            관심이 많아요.
           </span>
           <div className="link">
             <a
