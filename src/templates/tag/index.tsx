@@ -32,7 +32,9 @@ const Tags = ({ pageContext, data, location }: Props) => {
               );
             })}
           </ul>
-          <Link to="/tags/">Back</Link>
+          <a href="" onClick={() => history.go(-1)}>
+            Back
+          </a>
         </div>
       </div>
     </Layout>
