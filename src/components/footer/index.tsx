@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
-
-import { Icon } from 'src/components/icon';
+import Icon from '@mdi/react';
+import { mdiGithub, mdiLinkedin, mdiTwitter, mdiEmail } from '@mdi/js';
 
 import './style.scss';
 
@@ -31,26 +31,53 @@ export const Footer = () => (
             <a
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-link"
+              className="mr5"
               href="https://github.com/ryum91"
             >
-              <Icon title="Github" name="github" />
+              <Icon
+                path={mdiGithub}
+                title="GitHub"
+                color="#a5a5a5"
+                size="15px"
+                className="hover-zoom clickable"
+              />
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-link"
+              className="mr5"
               href="https://www.linkedin.com/in/charyum-park/"
             >
-              <Icon title="Linkedin" name="linkedin" />
+              <Icon
+                path={mdiLinkedin}
+                title="Linkedin"
+                color="#a5a5a5"
+                size="15px"
+                className="hover-zoom clickable"
+              />
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-link"
+              className="mr5"
               href="https://twitter.com/ryum91"
             >
-              <Icon title="Twitter" name="twitter" />
+              <Icon
+                path={mdiTwitter}
+                title="Twitter"
+                color="#a5a5a5"
+                size="15px"
+                className="hover-zoom clickable"
+              />
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="mailto:ryum91@gmail.com">
+              <Icon
+                path={mdiEmail}
+                title="Email"
+                color="#a5a5a5"
+                size="15px"
+                className="hover-zoom clickable"
+              />
             </a>
           </div>
         </div>
