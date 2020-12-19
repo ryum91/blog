@@ -54,7 +54,6 @@ module.exports = {
         name: 'DEV.RYUM',
         short_name: 'DEV.RYUM',
         description: 'RYUM Site for Developers',
-        homepage_url: 'https://dev.ryum.site',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#673ab7',
@@ -76,7 +75,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: ''
+        trackingId: 'UA-106652933-3'
       }
     },
     {
