@@ -1,7 +1,6 @@
 .sub-title {
   display: inline-block;
-  border-bottom: 7px groove;
-  border-color: rgba(255, 214, 17, 0.8);
+  border-bottom: 7px groove rgba(255, 214, 17, 0.8);
   height: 31px;
   border-radius: 3px;
   margin-bottom: 25px;
@@ -9,8 +8,7 @@
 
 .sub2-title {
   display: inline-block;
-  border-bottom: 7px groove;
-  border-color: rgba(130, 156, 177, 0.8);
+  border-bottom: 7px groove rgba(130, 156, 177, 0.8);
   height: 25px;
   border-radius: 3px;
 }
