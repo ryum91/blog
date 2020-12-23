@@ -34,6 +34,15 @@
   .content {
     margin-bottom: 20px;
 
+    h1 {
+      display: inline-block;
+      border-bottom: 7px groove rgba(255, 116, 17, 0.8);
+      height: 33px;
+      border-radius: 3px;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
     h2 {
       display: inline-block;
       border-bottom: 7px groove rgba(255, 214, 17, 0.8);
