@@ -2,7 +2,7 @@
 title: Gatsby로 블로그를 이전한 이유
 date: '2020-05-01T09:00:00.169Z'
 layout: post
-path: '/1'
+path: '/post/1'
 image: ./gatsby.jpg
 description: Jekyll에서 Gatsby로 블로그를 이전한 이유
 tags:

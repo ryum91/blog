@@ -2,7 +2,7 @@
 title: 2020년 중간 결산
 date: '2020-05-10T09:00:00.169Z'
 layout: post
-path: '/4'
+path: '/post/4'
 image: ./4_thumbnail.jpg
 description: 2020년 중간 결산
 tags:

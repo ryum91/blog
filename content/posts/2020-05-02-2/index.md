@@ -2,7 +2,7 @@
 title: B2B 개발에서 B2C 개발로 이직을 결심한 이유
 date: '2020-05-02T09:00:00.169Z'
 layout: post
-path: '/2'
+path: '/post/2'
 image: ./2_thumbnail.jpg
 description: B2B 솔루션 개발에서 B2C 서비스 개발로 이직을 결심한 이유에 대해 적어봤습니다. (부제 - 회사를 잘 고르는 방법)
 tags:

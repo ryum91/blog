@@ -2,7 +2,7 @@
 title: Vue 2.x 버전과 TypeScript 를 같이 써 본 후기
 date: '2020-05-12T09:00:00.169Z'
 layout: post
-path: '/5'
+path: '/post/5'
 image: ./5_thumbnail.jpg
 description: Vue 2.x 버전과 TypeScript 를 같이 써 본 후기를 작성해봤습니다.
 tags:
