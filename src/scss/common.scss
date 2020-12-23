@@ -9,3 +9,18 @@
 .mr5 {
   margin-right: 5px;
 }
+
+h1.underline {
+  display: inline-block;
+  border-bottom: 7px groove rgba(255, 214, 17, 0.8);
+  height: 30px;
+  border-radius: 3px;
+  margin-bottom: 25px;
+}
+
+h2.underline {
+  display: inline-block;
+  border-bottom: 7px groove rgba(130, 156, 177, 0.8);
+  height: 26px;
+  border-radius: 3px;
+}

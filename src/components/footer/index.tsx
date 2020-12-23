@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img, { FixedObject } from 'gatsby-image';
+import Img from 'gatsby-image';
 import Icon from '@mdi/react';
 import { mdiGithub, mdiLinkedin, mdiTwitter, mdiEmail } from '@mdi/js';
 
@@ -12,13 +12,12 @@ export const Footer = () => (
       <br />
       <div className="footer-container">
         <Img
-          fixed={
-            {
-              src: '/img/profile.jpg',
-              width: 50,
-              height: 50
-            } as FixedObject
-          }
+          fixed={{
+            srcSet: '/img/profile.jpg',
+            src: '/img/profile.jpg',
+            width: 50,
+            height: 50
+          }}
           className="rounded-circle"
         />
         <div className="profile">

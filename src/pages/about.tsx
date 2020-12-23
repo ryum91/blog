@@ -93,9 +93,9 @@ const About = ({ location, data }: Props) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <h1 className="sub-title">Experiences</h1>
+                <h1 className="underline">Experiences</h1>
                 <br />
-                <h3 className="sub2-title">KakaoPay</h3>
+                <h2 className="underline">KakaoPay</h2>
                 <ul className="sub-list">
                   <li>2020.06 ~ current</li>
                   <li>Personal Finance Management Team</li>
@@ -106,7 +106,7 @@ const About = ({ location, data }: Props) => {
                   <li>Lerna, React, Redux, Redux-Saga, Storybook</li>
                 </ul>
                 <br />
-                <h3 className="sub2-title">PNPSECURE</h3>
+                <h2 className="underline">PNPSECURE</h2>
                 <ul className="sub-list">
                   <li>2015.10 ~ 2020.06</li>
                   <li>Web Platform Team</li>
@@ -151,16 +151,16 @@ const About = ({ location, data }: Props) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <h1 className="sub-title">OpenSource</h1>
+                <h1 className="underline">OpenSource</h1>
                 <br />
-                <h3
-                  className="sub2-title"
+                <h2
+                  className="underline"
                   onClick={() => {
                     window.location.href = 'https://github.com/nhn/tui.grid';
                   }}
                 >
                   Toast-UI Grid
-                </h3>
+                </h2>
                 <ul className="sub-list">
                   <li>2019.09 ~ current</li>
                   <li>Contributor</li>

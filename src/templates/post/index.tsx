@@ -68,7 +68,6 @@ export const Post = ({ data, options }: Props) => {
         )}
         {!isList && <Adsense clientId={adsense} slotId="" format="auto" />}
       </div>
-      <hr className="page-hr" />
       {!isList && <Footer />}
       {!isList && <Utterances />}
     </div>

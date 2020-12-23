@@ -14,8 +14,6 @@ tags:
 
 Vue 2.x 버전과 TypeScript를 같이 써 본 후기를 작성해봤습니다.
 
----
-
 ## Vue와 TypeScript
 
 Vue 2.x 버전에서 공식으로 지원하는 TypeScript와의 연동 방법은 매우 불편하다.
@@ -25,8 +23,6 @@ Vue 2.x 버전에서 공식으로 지원하는 TypeScript와의 연동 방법은
 또한 'vue-property-decorator' 는 `vue-class-component` 를 확장한 확장판이라고 볼 수 있다.
 그러나 아이러니하게 'vue-class-component' 는 Vue를 만든 팀에서 정식으로 만든 패키지인데, 다소 사용하기 불편하고 기능적으로도 제한이 존재한다.  
 따라서 대부분 'vue-property-decorator' 를 사용한다. (심지어 공식 홈페이지에서도 'vue-property-decorator' 사용을 권장한다.)
-
----
 
 ## 개발환경 구축
 
@@ -46,8 +42,6 @@ Vue CLI v4.3.1
 ```
 
 **Check the feature** 부분에서 vuex, vue-router, ESLint 같은 도구들을 추가로 선택해도 무관하다.
-
----
 
 ## Class 방식의 Vue Component
 
@@ -141,14 +135,10 @@ export default class Login extends Vue {
 좀 더 자세한 사용 방법을 알고싶다면,
 [vuex-class](https://github.com/ktsn/vuex-class) 와 [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) 에서 확인할 수 있다.
 
----
-
 # 후기
 
 이 조합을 먼저 사이드 프로젝트에 적용해봤고, 이후 업무적으로도 도입을 진행했었다.
 그 결과 여러가지 느낀 점이나, 나만의 규칙들이 있었는데 그런 것들을 간략하게 소개한다.
-
----
 
 ## 이중 타입 선언
 
@@ -162,8 +152,6 @@ vuex 모듈을 선언할 때도 데이터의 타입을 선언해야 하는데, H
 this.$refs.testComponent as TestComponent
 ```
 
----
-
 ## Vue의 타입과 TypeScript의 타입
 
 Props를 선언할 때 Props의 Type과 기본 값, 필수 여부를 선언할 수 있다.
@@ -175,8 +163,6 @@ Props에 기본으로 선언하는 타입은 Object가 되게 되고, TypeScript
 이 점에서 부자연스러운 부분이라 생각해서 그냥 Props의 Type을 웬만하면 쓰지 않기로 했고, 모두 TypeScript의 Type으로 대체(?) 하기로 했다.
 
 > Vue Component 에게 Props의 타입을 명시적으로 정하는게 아니라, 대체한다고 볼 순 없다.
-
----
 
 ## vuex-class 사용 규칙
 
@@ -197,8 +183,6 @@ private vuexData!: string;
 
 따라서 **나는 vuex에서 State를 직접 가져오지 않고, 전부다 Getter를 선언해서 상태 데이터를 Getter로 가져오는 방법을 썼다.**
 
----
-
 ## 자동 완성 (Intellisense)
 
 일반적인 Vue Component를 작성한 뒤 다른 Vue Component에서 가져다 쓸 때 Template 에서 자동 완성 기능을 사용할 수 있다.
@@ -208,8 +192,6 @@ private vuexData!: string;
 따라서 이 점은 매우 불편한 점 중 하나라고 생각한다.
 
 > vuetify 같은 것들은 TypeScript를 이용해도 자동완성이 되는 것 같은데. 정확히 방법을 모르겠다.
-
----
 
 결과적으로 나의 총평을 **'쓸만은 하지만 불편하다'** 이다.  
 어떻게 보면 정식으로 지원하지 않는 기술 스택인데, 그냥 억지로 끼워 맞춰놓은 듯 한 느낌을 받았다.
