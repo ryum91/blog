@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PostByPathQuery } from 'src/types/graphql-types';
+import { PostByPathQuery } from 'graphql-types';
 
 import './style.scss';
 

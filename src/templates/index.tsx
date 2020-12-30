@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 import { Meta } from 'src/components/meta';
 import { Layout } from 'src/components/layout';
-import { PostByPathQuery } from 'src/types/graphql-types';
+import { PostByPathQuery } from 'graphql-types';
 
 import { Post } from './post';
 import { Page } from './page';

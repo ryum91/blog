@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { Meta } from 'src/components/meta';
 import { Layout } from 'src/components/layout';
 import { Post } from 'src/templates/post';
-import { IndexQueryQuery, PostByPathQuery } from 'src/types/graphql-types';
+import { IndexQueryQuery, PostByPathQuery } from 'graphql-types';
 
 interface Props {
   data: IndexQueryQuery;

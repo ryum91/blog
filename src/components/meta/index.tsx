@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { SiteSiteMetadata } from 'src/types/graphql-types';
+import { SiteSiteMetadata } from 'graphql-types';
 
 interface Props {
   site:

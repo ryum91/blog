@@ -6,7 +6,7 @@ import { Footer } from 'src/components/footer';
 import { Adsense } from 'src/components/adsense';
 import { Utterances } from 'src/components/utterances';
 import { Badge } from 'src/components/badge';
-import { PostByPathQuery } from 'src/types/graphql-types';
+import { PostByPathQuery } from 'graphql-types';
 
 import './style.scss';
 

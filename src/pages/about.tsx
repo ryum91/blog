@@ -6,7 +6,7 @@ import { mdiGithub, mdiLinkedin, mdiTwitter, mdiEmail } from '@mdi/js';
 
 import { Meta } from 'src/components/meta';
 import { Layout } from 'src/components/layout';
-import { ProfilePageQueryQuery } from 'src/types/graphql-types';
+import { ProfilePageQueryQuery } from 'graphql-types';
 
 import { siteMetadata } from '../../gatsby-config';
 import './about.scss';
@@ -27,7 +27,11 @@ const About = ({ location, data }: Props) => {
           <div className="container">
             <Img fixed={profile as FixedObject} className="rounded-circle" />
             <h1>Charyum Park</h1>
-            <p className="lead text-muted">Front-end developer capable of server development</p>
+            <p className="lead text-muted">
+              카카오페이에서 프론트엔드 개발을 하고 있습니다.
+              <br />
+              인프라/서버개발 등 각종 개발 지식에도 관심이 많아요.
+            </p>
             <div className="profile-link-wrap">
               <a
                 target="_blank"
@@ -140,6 +144,7 @@ const About = ({ location, data }: Props) => {
                 <ul>
                   <li>Legacy Front-End 개발 환경(JSP+jQuery)을 전면적으로 개편</li>
                   <li>Vue와 TypeScript 도입, Legacy 소스 코드를 SPA로 Migration</li>
+                  <li>팀원 대상으로 기술 세미나 진행(Webpack, Vue, TypeScript)</li>
                   <li>서버와 프론트엔드가 한 번에 빌드 될 수 있도록 통합 빌드 프로세스 도입</li>
                 </ul>
               </div>
